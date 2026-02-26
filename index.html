@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARDAR - Redefining Fashion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 15px 40px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #000;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-icons span {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero Banner */
+
+        .hero {
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            animation: zoomIn 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .hero-content h2 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .shop-btn {
+            padding: 15px 50px;
+            background: white;
+            color: black;
+            border: 2px solid white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .shop-btn:hover {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 60px 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-card h3 {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 40px 40px 60px;
+            background: #f9f9f9;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 550px;
+            background: #f0f0f0;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-category {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .original-price {
+            color: #999;
+            font-size: 14px;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .footer-col ul li:hover {
+            color: white;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        .newsletter button {
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .hero-content h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h1>SARDAR</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="#">MEN</a>
+            <a href="#">NEW ARRIVALS</a>
+            <a href="#">BESTSELLERS</a>
+            <a href="#">COLLECTIONS</a>
+            <a href="#">SALE</a>
+        </nav>
+        <div class="nav-icons">
+            <span>🔍</span>
+            <span>👤</span>
+            <span>❤️</span>
+            <span>🛒</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/UI/mahdi-chaghari-BC0l2uN6vlQ-unsplash.jpg"
+             alt="Fashion Model" 
+             class="hero-image">
+        <div class="hero-content">
+            <h2>SARDAR: REDEFINING STYLE</h2>
+            <p>Discover the latest collection for the modern man</p>
+            <button class="shop-btn">SHOP NOW</button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <h2 class="section-title">SHOP BY CATEGORY</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="images\Jackets\j8.png" alt="T-Shirts">
+                <h3>JACKETS</h3>
+            </div>
+            <div class="category-card">
+                <img src="images/Shirts/s1.png" alt="Shirts">
+                <h3>SHIRTS</h3>
+            </div>
+            <div class="category-card">
+                <img src="images/Jeans/j1.png" alt="Jeans">
+                <h3>JEANS</h3>
+            </div>
+            <div class="category-card">
+                <img src="images/Polo/p1.png" alt="POLO">
+                <h3>POLO</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products">
+        <h2 class="section-title">FEATURED PRODUCTS</h2>
+        <div class="product-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/Shirts/s2.png" alt="Product">
+                </div>
+                <div class="product-category">SHIRTS</div>
+                <div class="product-title">SARDAR Linen Blend Shirt</div>
+                <div>
+                    <span class="product-price">₹1,499</span>
+                    <span class="original-price">₹2,999</span>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/Polo/p1.png" alt="Product">
+                </div>
+                <div class="product-category">POLO</div>
+                <div class="product-title">SARDAR Oversized Fit POLO</div>
+                <div>
+                    <span class="product-price">₹999</span>
+                    <span class="original-price">₹1,999</span>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/Jeans/j1.png" alt="Product">
+                </div>
+                <div class="product-category">JEANS</div>
+                <div class="product-title">SARDAR slim Fit Jeans</div>
+                <div>
+                    <span class="product-price">₹1,799</span>
+                    <span class="original-price">₹3,499</span>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/Jackets/j2.png" alt="Product">
+                </div>
+                <div class="product-category">JACKETS</div>
+                <div class="product-title">SARDAR Relaxed Fit Jacket</div>
+                <div>
+                    <span class="product-price">₹1,299</span>
+                    <span class="original-price">₹2,499</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>SARDAR</h4>
+                <ul>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Store Locator</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>HELP</h4>
+                <ul>
+                    <li>FAQs</li>
+                    <li>Shipping Policy</li>
+                    <li>Returns & Exchanges</li>
+                    <li>Track Order</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>LEGAL</h4>
+                <ul>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                    <li>Cookie Policy</li>
+                </ul>
+            </div>
+            <div class="footer-col newsletter">
+                <h4>NEWSLETTER</h4>
+                <p>Subscribe for updates & offers</p>
+                <input type="email" placeholder="Your email">
+                <button>SUBSCRIBE</button>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 SARDAR. All rights reserved. | For Educational Project Only
+        </div>
+    </footer>
+</body>
+</html>
